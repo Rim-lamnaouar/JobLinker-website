@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Navbar = () => {
+    const [isMenuOpen, setMenuOpen] = useState(false);
+    const handleMenuToggler = () =>{
+        setMenuOpen(!isMenuOpen)
+    }
   return (
-    <div>Navbar</div>
+    <header>
+        <nav>
+            <a href="/">NerdJob</a>
+        </nav>
+    </header>
   )
 }
 

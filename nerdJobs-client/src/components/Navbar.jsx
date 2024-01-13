@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,NavLink } from "react";
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -19,9 +19,16 @@ const Navbar = () => {
       <nav>
         <a href="/">NerdJob</a>
         <ul>
-          {navItems.map((item, index) => (
-            <li key={index}>
-              <a href={item.path}>{item.title}</a>
+          {navItems.map((path, title) => (
+            <li key={path}>
+              <NavLink
+                to={path}
+                className={({ isActive, isPending }) =>
+                  isActive ? "active" : isPending ? "pending" : ""
+                }
+              >
+                {title}
+              </NavLink>
             </li>
           ))}
         </ul>
